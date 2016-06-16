@@ -6,6 +6,8 @@
 
 #include <ros.h>
 
+#include "HighpowerMotorshield.h"
+
 /**************************************************************************************
  * GLOBAL CONSTANTS
  **************************************************************************************/
@@ -35,6 +37,10 @@ void setup()
   {
     node_handle.spinOnce();
   }
+
+  /* Initialize the motorshield library */
+
+  HighpowerMotorshield::begin();
 }
 
 void loop() 
