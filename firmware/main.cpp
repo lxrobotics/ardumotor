@@ -6,6 +6,8 @@
 
 #include <ros.h>
 
+#include <ardumotor/RPM.h>
+
 #include "HighpowerMotorshield.h"
 
 /**************************************************************************************
@@ -16,11 +18,16 @@
  * PROTOTYPES
  **************************************************************************************/
 
+void RPMCallbackFunction(const ardumotor::RPM &msg);
+
 /**************************************************************************************
  * GLOBAL VARIABLES
  **************************************************************************************/
 
 ros::NodeHandle node_handle;
+
+ros::Subscriber<ardumotor::RPM> rpm_subscriber("/rpm", &RPMCallbackFunction);
+
 
 /**************************************************************************************
  * ARDUINO FRAMEWORK FUNCTIONS
@@ -41,6 +48,10 @@ void setup()
   /* Initialize the motorshield library */
 
   HighpowerMotorshield::begin();
+
+  /* Subscribe to the rpm topic */
+
+  node_handle.subscribe(rpm_subscriber);
 }
 
 void loop() 
@@ -52,3 +63,7 @@ void loop()
  * OUR FUNCTIONS
  **************************************************************************************/
 
+void RPMCallbackFunction(const ardumotor::RPM &msg)
+{
+
+}
