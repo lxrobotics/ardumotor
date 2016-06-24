@@ -8,8 +8,6 @@ find_package(catkin REQUIRED COMPONENTS
   rosserial_client
 )
 
-# find_package(Boost REQUIRED COMPONENTS system)
-
 ################################################
 ## Declare ROS messages, services and actions ##
 ################################################
@@ -18,20 +16,6 @@ add_message_files(
   FILES
   RPM.msg
 )
-
-## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
-
-## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
-#   Action1.action
-#   Action2.action
-# )
 
 generate_messages(
   DEPENDENCIES
@@ -72,18 +56,13 @@ rosserial_configure_client(
 rosserial_add_client_target(firmware ardumotor ALL)
 rosserial_add_client_target(firmware ardumotor-upload)
 
-## Declare a C++ library
-# add_library(motoros
-#   src/${PROJECT_NAME}/motoros.cpp
-# )
+add_executable(ardumotortest
+  src/ardumotortest.cpp
+)
 
-## Declare a C++ executable
-# add_executable(motoros_node src/motoros_node.cpp)
-
-## Specify libraries to link a library or executable target against
-# target_link_libraries(motoros_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(ardumotortest
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
