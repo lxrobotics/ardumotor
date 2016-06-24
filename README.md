@@ -45,7 +45,7 @@ PORT /dev/ttyUSB0
 ```
 * Download to the Arduino
 ```
-catkin_make ardumote_firmware_ardumote-upload
+catkin_make ardumotor_firmware_ardumotor-upload
 ```
 
 ### Start
