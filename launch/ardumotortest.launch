@@ -1,0 +1,3 @@
+<launch>  
+    <node pkg="ardumotor" type="ardumotortest" name="ardumotortest" output="screen"/>
+</launch>   
